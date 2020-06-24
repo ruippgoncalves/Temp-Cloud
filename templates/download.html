@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h2>Content:</h2>
+<code class="language-bash" data-lang="bash">
+    wget -o "{{ name }}" "{{ site }}&down=wget"
+</code><br>
+<img id="img" class="preview-image rounded mx-auto d-inline-block d-none mt-2" src="/upload/{{ md5 }}"
+    onerror="delimg()"><br>
+<a class="btn btn-primary" href="/upload/{{ md5 }}" download="{{ name }}">Download</a>
+
+<script>
+    function delimg() {
+        let img = document.querySelector("#img");
+
+        img.parentNode.removeChild(img);
+    }
+</script>
+{% endblock %}

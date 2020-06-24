@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h1>Temp Cloud</h1>
+<p>Drop a file here and for one hour anyone with the generated link can download that file.</p>
+<h2>Upload a file:</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <div class="form-group"><input id="file" type="file" name="file" oninput="previewFile()" required></div>
+    <div class="form-group">
+        <div id="preview" class="preview d-none">
+            <img id="img" class="preview-image rounded mx-auto d-inline-block d-none" src="" alt="Preview Image">
+        </div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Upload">
+</form>
+
+<script>
+    let file = document.querySelector("#file");
+    let preview = document.querySelector("#preview");
+    let img = document.querySelector("#img");
+    let video = document.querySelector("#video");
+
+    function previewFile() {
+        let userFile = file.files[0];
+        let format;
+        try {
+            format = userFile.type.substr(0, 5);
+        } catch {
+            format = "none";
+        }
+
+        // Check if user file exists and is an image
+        if (userFile && format === "image") {
+            let blobURL = URL.createObjectURL(userFile);
+
+            preview.classList.replace("d-none", "d-inline-block")
+            img.classList.replace("d-none", "d-inline-block")
+
+            img.setAttribute("src", blobURL)
+        } else {
+            preview.classList.replace("d-inline-block" || "d-none", "d-none");
+            img.classList.replace("d-inline-block" || "d-none", "d-none");
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,31 @@
+main {
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main .form-control {
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+.preview-image {
+    width: auto;
+    max-width: 60%;
+    height: auto;
+    max-height: 70%;
+}
+
+a {
+    margin-top: 5px;
+}
+
+hr {
+    margin-left: 10%;
+    margin-right: 10%;
+}
