@@ -3,7 +3,7 @@
 {% block main %}
 <h2>Content:</h2>
 <code class="language-bash" data-lang="bash">
-    wget -o "{{ name }}" "{{ site }}&down=wget"
+    wget -O "{{ name }}" "{{ site }}&down=wget"
 </code><br>
 <img id="img" class="preview-image rounded mx-auto d-inline-block d-none mt-2" src="/upload/{{ md5 }}"
     onerror="delimg()"><br>

@@ -113,7 +113,7 @@ def download():
     
     try:
         if request.args.get("down") == "wget":
-            return redirect(request.url_root + "static/upload/" + file[0]["md5"])
+            return redirect(request.url_root + "upload/" + file[0]["md5"])
 
         return render_template("download.html", name=file[0]["name"], md5=file[0]["md5"], site=request.url)
     except:
